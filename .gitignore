@@ -37,3 +37,4 @@ vir/*/pyvenv.cfg
 
 # Other
 *.log
+backend/backend/settings/.env
