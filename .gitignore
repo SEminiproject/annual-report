@@ -21,6 +21,8 @@ backend/*.db
 backend/*.sqlite3
 backend/static/
 backend/media/
+backend/backend/settings/.env
+
 
 # Virtual environment
 vir/
