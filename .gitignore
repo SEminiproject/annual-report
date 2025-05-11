@@ -11,7 +11,7 @@ frontend/out
 
 # backend
 backend/*.pyc
-backend/__pycache__/
+backend/__pycache__/*
 backend/db.sqlite3
 backend/*.log
 backend/*.pot
@@ -22,7 +22,7 @@ backend/*.sqlite3
 backend/static/
 backend/media/
 backend/backend/settings/.env
-
+backend/student/migrations/__pycache__/*
 
 # Virtual environment
 vir/
@@ -40,3 +40,4 @@ vir/*/pyvenv.cfg
 # Other
 *.log
 backend/backend/settings/.env
+
