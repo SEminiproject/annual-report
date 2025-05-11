@@ -11,7 +11,7 @@ class Designation(models.Model):
         ('Professor', 'Professor'),
         ('Asst. Professor', 'Assistant Professor'),
     ]
-    title = models.CharField(max_length=50, choices=DESIGNATION_CHOICES, unique=True)
+    staff_designation = models.CharField(max_length=100, choices=DESIGNATION_CHOICES)
 
     def __str__(self):
         return self.get_title_display()
