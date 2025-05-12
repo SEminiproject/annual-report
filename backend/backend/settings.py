@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'college.apps.CollegeConfig',
     'staff.apps.StaffConfig',
     'student.apps.StudentConfig',
+    'pages.apps.PagesConfig',
     
     # 3rd party library's
     'rest_framework',

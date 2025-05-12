@@ -1,7 +1,11 @@
 from django.db import models
+from department.models import Department
+from uuid import uuid4
+
 
 class Staff(models.Model):
-    pass 
+    id = models.UUIDField(default = uuid4,primary_key=True,blank=False,null=False)
+    department = models.ForeignKey(Department,related_name='staff_member',on_delete=models.CASCADE,blank=False,null=False)
 
 
 class Designation(models.Model):

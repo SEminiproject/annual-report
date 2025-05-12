@@ -1,11 +1,12 @@
 from rest_framework import generics
-from .models import Deparment
+from .models import Department
 from .serializer import *
 
 
 # view for getting all the departments
 class AllDeprtment(generics.ListAPIView):
-    pass
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer_admin
 
 # view to add a department
 class AddDepartment(generics.CreateAPIView):
