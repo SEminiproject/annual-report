@@ -5,6 +5,6 @@ from .serializer import CollegeSerializer
 
 class AllCollege(generics.ListAPIView):
     queryset = College.objects.all()
-    permission_classes = [IsAdminUser]
+    # permission_classes = [IsAdminUser]
     
     serializer_class = CollegeSerializer

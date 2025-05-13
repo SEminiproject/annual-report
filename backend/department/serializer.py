@@ -14,3 +14,9 @@ class DepartmentSerializer_admin(serializers.ModelSerializer):
     # any method with get_starting is looked for 
     def get_staff_count(self, obj):
         return obj.staff_member.count()
+
+
+class DepartmentSerializer_add(serializers.ModelSerializer):
+    class Meta:
+        model = Department
+        fields = ['name']
