@@ -1,70 +1,67 @@
 .container {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #e0eafc, #cfdef3);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  background-color: #f5f6fa; /* Light grey background */
 }
 
 .card {
-  background: #fff;
-  padding: 2.5rem;
+  background-color: #fff;
+  padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
+  max-width: 400px;
   text-align: center;
-  animation: fadeIn 0.6s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .title {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 1.5rem;
-  color: #767a82;
+  color: #1a1a1a;
 }
 
 .formGroup {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   text-align: left;
 }
 
 .label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #334155;
+  font-weight: 700;
+  color: #333;
 }
 
 .input {
   width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #cbd5e1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  color: #000;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
 }
 
 .input:focus {
-  outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  border-color: #3b82f6; /* blue-500 */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
 }
 
 .button {
   width: 100%;
+  padding: 0.75rem;
   background-color: #3b82f6;
   color: white;
-  padding: 0.75rem;
-  font-weight: 600;
   border: none;
   border-radius: 8px;
+  font-weight: 500;
   cursor: pointer;
+  font-size: 1rem;
   transition: background-color 0.3s ease;
 }
 
@@ -74,8 +71,8 @@
 
 .footerText {
   margin-top: 1rem;
-  font-size: 0.875rem;
-  color: #64748b;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 .footerLink {
