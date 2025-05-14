@@ -1,29 +1,43 @@
-import React from 'react';
-import './DashboardPage.css';
+'use client';
 
-const data = [
-  { title: 'Total Current Students', value: '25,569', color: '#3b82f6' },
-  { title: 'Total Current Teachers', value: '7,500', color: '#6366f1' },
-  { title: 'Total Current Schools', value: '512', color: '#f97316' },
-  { title: 'Total Budget', value: '৳ 51,9500', color: '#22c55e' },
-];
+import { useEffect, useState } from 'react';
+import styles from './page.module.css';
 
-const DashboardPage = () => {
+export default function AdminDashboard() {
+  const [departments, setDepartments] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadLocalDepartments() {
+      try {
+        const res = await fetch('/departments.json');
+        const data = await res.json();
+        setDepartments(data);
+      } catch (err) {
+        console.error('Error loading local departments:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadLocalDepartments();
+  }, []);
+
   return (
-    <div className="dashboard-container">
-      {data.map((card, index) => (
-        <div
-          key={index}
-          className="dashboard-card"
-          style={{ backgroundColor: card.color }}
-        >
-          <h3>{card.title}</h3>
-          <p className="value">{card.value}</p>
-          <button className="details-btn">See Details</button>
+    <div className={styles.container}>
+      <h1 className={styles.heading}>Admin Dashboard</h1>
+      {loading ? (
+        <p className={styles.loading}>Loading departments...</p>
+      ) : (
+        <div className={styles.grid}>
+          {departments.map((dept, idx) => (
+            <div key={idx} className={styles.card}>
+              <h3>{dept.name}</h3>
+              <p>{dept.description}</p>
+            </div>
+          ))}
         </div>
-      ))}
+      )}
     </div>
   );
-};
-
-export default DashboardPage;
+}
