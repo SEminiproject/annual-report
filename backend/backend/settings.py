@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'staff.apps.StaffConfig',
     'student.apps.StudentConfig',
     'pages.apps.PagesConfig',
+    'user.apps.UserConfig',
     
     # 3rd party library's
     'rest_framework',
@@ -132,3 +133,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+AUTH_USER_MODEL = 'user.CustomUser'
