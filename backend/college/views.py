@@ -8,3 +8,4 @@ class AllCollege(generics.ListAPIView):
     # permission_classes = [IsAdminUser]
     
     serializer_class = CollegeSerializer
+
