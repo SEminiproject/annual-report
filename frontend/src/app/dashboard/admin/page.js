@@ -1,28 +1,43 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import '../admin/page.module.css';
+import { useEffect, useState } from 'react';
+import styles from './page.module.css';
 
-export default function Dashboard() {
-  const router = useRouter();
+export default function AdminDashboard() {
+  const [departments, setDepartments] = useState([]);
+  const [loading, setLoading] = useState(true);
 
- useEffect(() => {
-  const isAuthenticated = true;
-  if (!isAuthenticated) {
-    router.push('/login');
-  }
-}, [router]);
+  useEffect(() => {
+    async function loadLocalDepartments() {
+      try {
+        const res = await fetch('/departments.json');
+        const data = await res.json();
+        setDepartments(data);
+      } catch (err) {
+        console.error('Error loading local departments:', err);
+      } finally {
+        setLoading(false);
+      }
+    }
 
+    loadLocalDepartments();
+  }, []);
 
   return (
-    <div className="dashboard">
-      <h1>Dashboard</h1>
-      <div className="card-grid">
-        <div className="card">📈 Report Summary</div>
-        <div className="card">🗂 Documents</div>
-        <div className="card">👤 User Info</div>
-      </div>
+    <div className={styles.container}>
+      <h1 className={styles.heading}>Admin Dashboard</h1>
+      {loading ? (
+        <p className={styles.loading}>Loading departments...</p>
+      ) : (
+        <div className={styles.grid}>
+          {departments.map((dept, idx) => (
+            <div key={idx} className={styles.card}>
+              <h3>{dept.name}</h3>
+              <p>{dept.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
