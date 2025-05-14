@@ -6,12 +6,9 @@ from rest_framework_simplejwt.views import (
 
 
 urlpatterns = [
-    path('<uuid:college_id>/department/',include('department.urls'),name='dept'),
+    path('department/',include('department.urls'),name='dept'),
     path('college/',include('college.urls'),name='collegeurls'),
-    # path('<uuid:staff_id',),
-    # path('<uuid:student_id',),
-     # Token obtain and refresh URLs
+ 
     path('user/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Get access & refresh tokens
     path('user/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Refresh access token
-
 ]

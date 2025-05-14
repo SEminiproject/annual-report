@@ -20,11 +20,14 @@ class AddDepartment(generics.CreateAPIView):
         college_id  = self.kwargs.get('college_id')
         college = get_object_or_404(College,id= college_id)
         serializer.save(college_id = college)
-        
+
 # view for editing a department
 class EditDepartment(generics.UpdateAPIView):
     pass
 
-# view for deleting a department
-class DeleteDepartment(generics.DestroyAPIView):
-    pass
+
+class DetailDepartment(generics.RetrieveAPIView):
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer_add
+    lookup_field = 'id'
+    
