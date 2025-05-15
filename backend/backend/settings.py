@@ -31,8 +31,6 @@ INSTALLED_APPS = [
     # apps
     'department.apps.DepartmentConfig',
     'college.apps.CollegeConfig',
-    'staff.apps.StaffConfig',
-    'student.apps.StudentConfig',
     'pages.apps.PagesConfig',
     'user.apps.UserConfig',
     

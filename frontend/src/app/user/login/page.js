@@ -53,7 +53,7 @@ if (response.ok) {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <h2 className={styles.title}>Login</h2>
+        <h2 className={styles.title}>Portal Login</h2>
 
         {error && <p style={{ color: 'red', marginBottom: '1rem' }}>{error}</p>}
 

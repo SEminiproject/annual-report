@@ -8,9 +8,13 @@ from college.models import College
 
 # view for getting all the departments
 class AllDeprtment(generics.ListAPIView):
-    queryset = Department.objects.all()
     serializer_class = DepartmentSerializer_admin
 
+    def get_queryset(self):
+        user = self.request.user  # Get the logged-in user
+        if user and user.college_id:
+            return Department.objects.filter(college_id=user.college_id)
+        return Department.objects.none()  # return empty queryset if no college
 
 # view to add a department
 class AddDepartment(generics.CreateAPIView):
