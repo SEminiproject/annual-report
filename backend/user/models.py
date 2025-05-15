@@ -14,8 +14,9 @@ class CustomUser(AbstractUser):
     }
     id = models.UUIDField(default=uuid4,primary_key=True)
     type = models.CharField(choices=Choices,null=True,blank=True)
-    colled_id = models.ForeignKey(College,on_delete=models.CASCADE,null=True,blank=True)
+    college_id = models.ForeignKey(College,on_delete=models.CASCADE,null=True,blank=True)
     department_id = models.ForeignKey(Department,on_delete=models.CASCADE,blank=True,null=True)
     
+    email = models.EmailField(unique=True)  # make sure email is unique
     def __str__(self):
-        return self.username
+        return self.email
