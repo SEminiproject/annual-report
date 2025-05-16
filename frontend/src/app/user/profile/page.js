@@ -77,7 +77,6 @@ export default function UserProfile() {
           <p>{user.username}</p>
         </div>
         
-        {/* Add other user fields here as needed */}
       </div>
     </div>
     </>

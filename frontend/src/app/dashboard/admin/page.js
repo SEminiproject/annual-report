@@ -22,7 +22,6 @@ export default function AdminDashboard() {
       try {
         const token = localStorage.getItem('token');
         if (!token) {
-          setError("User not authenticated.");
           router.push("/user/login")
           return;
         }

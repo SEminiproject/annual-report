@@ -9,3 +9,4 @@ class CollegeSerializer(serializers.ModelSerializer):
         model = College
         fields = ['id','name','dept_college']
 
+
